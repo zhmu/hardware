@@ -14,7 +14,4 @@ extint_init()
 	PORTB |= (1<<PB2); // pullup
 	DDRB &= ~(1<<PB2);
 	//PORTB &= ~(1<<PB2); // tri-stated
-
-	// Enable global interrupts
-	sei();
 }

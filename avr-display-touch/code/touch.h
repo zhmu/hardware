@@ -3,9 +3,12 @@
 
 #include <inttypes.h>
 
-#define X_AXIS					0xD1
-#define Y_AXIS					0x91
+#define X_AXIS			0xD1
+#define Y_AXIS			0x91
 #define CMD_TOUCH_COORDS	0x01
+#define CMD_SYNC		0xf0
+#define CMD_SYNCED		0xf1
+#define CMD_DRAWN		0xf2
 
 typedef struct point { 
 	uint16_t x;

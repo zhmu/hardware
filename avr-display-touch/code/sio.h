@@ -6,7 +6,7 @@
 
 void sio_init();
 void sio_putc(unsigned char c);
-unsigned char sio_getc();
+int sio_getc(unsigned char* c);
 void sio_puts(char* s);
 
 #ifdef DEBUG_TOUCH

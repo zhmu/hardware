@@ -11,32 +11,14 @@
 #include "extint.h"
 
 /***** GLOBALS *****/
-// Sio buffer
-#define INPUT_BUF_LEN	128
-uint8_t  inputbuf[INPUT_BUF_LEN];
-uint8_t  input_write_pos = 0;
-uint8_t  input_read_pos = 0;
-uint8_t  write_curic = 0;
-uint8_t  write_left = 0;
-
-#define INPUT_GOTDATA (input_write_pos != input_read_pos)
-#define INPUT_GETCH (inputbuf[input_read_pos])
-#define INPUT_FLUSH do { input_read_pos = (input_read_pos + 1 ) % INPUT_BUF_LEN; } while (0)
+uint8_t	write_curic = 0;
+uint8_t	write_left = 0;
 
 uint8_t touched = 0; // See EXT INT2 ISR
 uint16_t settle = 0; // settle touchscreen counter
 /***** END GLOBALS ****/
- 
+
 /*** ISR ROUTINES ****/
-ISR(USART_RXC_vect)
-{
-	unsigned char c;
-
-	c = UDR;
-	inputbuf[input_write_pos] = c;
-	input_write_pos = (input_write_pos + 1) % INPUT_BUF_LEN;
-}
-
 ISR(INT2_vect)
 {
 	if (touched == 0) 
@@ -83,23 +65,29 @@ int main()
 
 	spi_send(0x91); // enable PENIRQ, differential mode
 
+	/* go! */
+	sei();
+
 uint16_t i = 0; // settle touchscreen counter
 	while(1) {
 		/* Handle display input */
-		while (INPUT_GOTDATA) {
-			a = INPUT_GETCH; INPUT_FLUSH;
+		while (sio_getc(&a)) {
 			if (write_left == 0) {
-				write_curic = (a & 0x40) ? IC2 : IC1;
-				lcd_command(SET_PAGE, a & 0x07, write_curic);
-				lcd_command(SET_ADDRESS, 0, write_curic);
-				write_left = 64;
-			} else {
-					lcd_write(a, write_curic);
-					write_left--;
+				if (a != CMD_SYNC) {
+					write_curic = (a & 0x40) ? IC2 : IC1;
+					lcd_command(SET_PAGE, a & 0x07, write_curic);
+					lcd_command(SET_ADDRESS, 0, write_curic);
+					write_left = 64;
+				} else {
+					sio_putc(CMD_SYNCED);
 				}
+			} else {
+				lcd_write(a, write_curic);
+				if (--write_left == 0)
+					sio_putc(CMD_DRAWN);
+			}
 		}
-
-		/* Handle touchscreen input */
+/* Handle touchscreen input */
 		if ( (touched == 1) && (settle == 0) )	{
 			/* Read the coordinate */
 			c.y = touch_read(Y_AXIS);

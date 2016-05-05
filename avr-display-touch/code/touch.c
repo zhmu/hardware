@@ -13,15 +13,15 @@ touch_init()
 uint16_t
 touch_read(unsigned char axis)
 {
-			uint16_t v = 0;
-			spi_ss_select();
-			// ready
-			spi_send(axis); // request axis
-			while ((PINB & 0x02) == 1); // busy check 
-			// ready
-			v = spi_getval();
-			spi_ss_deselect();
-			return v;
+	uint16_t v = 0;
+	spi_ss_select();
+	// ready
+	spi_send(axis); // request axis
+	while ((PINB & 0x02) == 1); // busy check 
+	// ready
+	v = spi_getval();
+	spi_ss_deselect();
+	return v;
 }
 
 void

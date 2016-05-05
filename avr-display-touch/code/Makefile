@@ -1,8 +1,8 @@
 CC=		avr-gcc
 OBJS=		avr.o sio.o spi.o touch.o display.o extint.o
 
-SIODEV?=	/dev/ttyU0
-CFLAGS+=	-DF_CPU=12000000L -mmcu=atmega16 -Os -Wall
+SIODEV?=	/dev/ttyU1
+CFLAGS= -DF_CPU=12000000L -mmcu=atmega16 -Os -Wall
 
 avr.hex:	avr.elf
 		avr-objcopy -j .text -j .data -O ihex avr.elf avr.hex
@@ -39,3 +39,6 @@ prog-pony:
 
 prog-rink:
 		avrdude -c avr910 -pm16 -P $(SIODEV) -U flash:w:avr.hex
+
+prog-fuses:
+		avrdude -c pony-stk200 -pm16 -U lfuse:w:0x6F:m -U hfuse:w:0xD9:m 

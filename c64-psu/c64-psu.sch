@@ -1,0 +1,532 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L power:AC #PWR03
+U 1 1 5B5457E4
+P 1950 850
+F 0 "#PWR03" H 1950 750 50  0001 C CNN
+F 1 "AC" H 1950 1125 50  0000 C CNN
+F 2 "" H 1950 850 50  0001 C CNN
+F 3 "" H 1950 850 50  0001 C CNN
+	1    1950 850 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transformer:TRANSF6 TR1
+U 1 1 5B545E7F
+P 2550 1250
+F 0 "TR1" H 2550 1732 50  0000 C CNN
+F 1 "TRANSF6" H 2550 1641 50  0000 C CNN
+F 2 "c64-components:Transformer-FL30" H 2550 1250 50  0001 C CNN
+F 3 "" H 2550 1250 50  0001 C CNN
+	1    2550 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:PWR_FLAG #FLG01
+U 1 1 5B54600B
+P 1500 750
+F 0 "#FLG01" H 1500 825 50  0001 C CNN
+F 1 "PWR_FLAG" H 1500 924 50  0000 C CNN
+F 2 "" H 1500 750 50  0001 C CNN
+F 3 "~" H 1500 750 50  0001 C CNN
+	1    1500 750 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1500 750  1500 950 
+Connection ~ 1500 950 
+Wire Wire Line
+	1500 950  1950 950 
+Wire Wire Line
+	1950 850  1950 950 
+Connection ~ 1950 950 
+$Comp
+L Device:Fuse F1
+U 1 1 5B5460AD
+P 2000 1050
+F 0 "F1" H 2060 1096 50  0000 L CNN
+F 1 "Fuse" H 2060 1005 50  0000 L CNN
+F 2 "Fuse:Fuseholder_Cylinder-5x20mm_Schurter_0031_8201_Horizontal_Open" V 1930 1050 50  0001 C CNN
+F 3 "~" H 2000 1050 50  0001 C CNN
+	1    2000 1050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2350 1150 2350 1250
+Text GLabel 3000 1250 2    50   Input ~ 0
+9VAC_A
+Text GLabel 3000 1450 2    50   Input ~ 0
+9VAC_B
+Wire Wire Line
+	2750 1250 3000 1250
+Wire Wire Line
+	3000 1450 2750 1450
+Text Notes 500  550  0    50   ~ 0
+Initial transformation
+Wire Notes Line
+	500  550  2850 550 
+Wire Notes Line
+	2850 550  2850 1600
+Wire Notes Line
+	2850 1600 500  1600
+Wire Notes Line
+	500  1600 500  550 
+Wire Wire Line
+	2750 1150 2750 1050
+$Comp
+L power:GND #PWR05
+U 1 1 5B548289
+P 4200 1050
+F 0 "#PWR05" H 4200 800 50  0001 C CNN
+F 1 "GND" V 4205 877 50  0000 C CNN
+F 2 "" H 4200 1050 50  0001 C CNN
+F 3 "" H 4200 1050 50  0001 C CNN
+	1    4200 1050
+	0    1    1    0   
+$EndComp
+Wire Notes Line
+	3550 850  5000 850 
+Wire Notes Line
+	5000 850  5000 1450
+Wire Notes Line
+	5000 1450 3550 1450
+Wire Notes Line
+	3550 1450 3550 850 
+Text Notes 3550 850  0    50   ~ 0
+Power output
+$Comp
+L Device:D_Bridge_-AA+ D1
+U 1 1 5B5488E6
+P 1450 2550
+F 0 "D1" H 1400 2550 50  0000 L CNN
+F 1 "D_Bridge_-AA+" H 1200 2250 50  0000 L CNN
+F 2 "Diode_THT:Diode_Bridge_Vishay_KBU" H 1450 2550 50  0001 C CNN
+F 3 "~" H 1450 2550 50  0001 C CNN
+	1    1450 2550
+	1    0    0    -1  
+$EndComp
+Text GLabel 1450 2100 2    50   Input ~ 0
+9VAC_A
+Text GLabel 1450 3000 0    50   Input ~ 0
+9VAC_B
+Wire Wire Line
+	1450 3000 1450 2850
+Wire Wire Line
+	1450 2100 1450 2250
+$Comp
+L power:GNDPWR #PWR02
+U 1 1 5B5494E0
+P 900 2350
+F 0 "#PWR02" H 900 2150 50  0001 C CNN
+F 1 "GNDPWR" H 905 2195 50  0000 C CNN
+F 2 "" H 900 2300 50  0001 C CNN
+F 3 "" H 900 2300 50  0001 C CNN
+	1    900  2350
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	900  2350 900  2550
+Wire Wire Line
+	900  2550 1150 2550
+$Comp
+L Device:CP C1
+U 1 1 5B5498DD
+P 2000 2700
+F 0 "C1" H 2118 2746 50  0000 L CNN
+F 1 "2200uF" H 2118 2655 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D13.0mm_P5.00mm" H 2038 2550 50  0001 C CNN
+F 3 "~" H 2000 2700 50  0001 C CNN
+	1    2000 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1750 2550 2000 2550
+Wire Notes Line
+	500  2050 2450 2050
+Wire Notes Line
+	2450 2050 2450 3250
+Wire Notes Line
+	2450 3250 500  3250
+Wire Notes Line
+	500  3250 500  2050
+Text Notes 500  2050 0    50   ~ 0
+Rectifier
+$Comp
+L c64-psu-components:OKI78SR U1
+U 1 1 5B54D998
+P 3200 2550
+F 0 "U1" H 3200 2792 50  0000 C CNN
+F 1 "OKI78SR" H 3200 2701 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 3200 2775 50  0001 C CIN
+F 3 "http://www.fairchildsemi.com/ds/LM/LM7805.pdf" H 3200 2500 50  0001 C CNN
+	1    3200 2550
+	1    0    0    -1  
+$EndComp
+Connection ~ 2000 2550
+$Comp
+L Device:CP C2
+U 1 1 5B54DEB7
+P 2600 2700
+F 0 "C2" H 2718 2746 50  0000 L CNN
+F 1 "10uF" H 2718 2655 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm" H 2638 2550 50  0001 C CNN
+F 3 "~" H 2600 2700 50  0001 C CNN
+	1    2600 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2600 2550 2900 2550
+Connection ~ 2600 2550
+Wire Wire Line
+	2000 2550 2600 2550
+Wire Wire Line
+	2000 2850 2600 2850
+Wire Notes Line
+	2500 2250 2500 3250
+Wire Notes Line
+	2500 3250 4000 3250
+Wire Notes Line
+	4000 3250 4000 2250
+Wire Notes Line
+	4000 2250 2500 2250
+Text Notes 2500 2250 0    50   ~ 0
+Switching regulator
+$Comp
+L Reference_Voltage:TL431LP D2
+U 1 1 5B553F7D
+P 4850 3150
+F 0 "D2" V 4896 3081 50  0000 R CNN
+F 1 "TL431LP" V 4805 3081 50  0000 R CNN
+F 2 "Package_TO_SOT_THT:TO-92_HandSolder" H 4850 3000 50  0001 C CIN
+F 3 "http://www.ti.com/lit/ds/symlink/tl431.pdf" H 4850 3150 50  0001 C CIN
+	1    4850 3150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:Fuse F2
+U 1 1 5B55641B
+P 4200 2550
+F 0 "F2" H 4260 2596 50  0000 L CNN
+F 1 "Fuse" H 4260 2505 50  0000 L CNN
+F 2 "Fuse:Fuseholder_Cylinder-5x20mm_Schurter_0031_8201_Horizontal_Open" V 4130 2550 50  0001 C CNN
+F 3 "~" H 4200 2550 50  0001 C CNN
+	1    4200 2550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 5B559C1A
+P 4850 2700
+F 0 "R3" H 4920 2746 50  0000 L CNN
+F 1 "1K" H 4920 2655 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 4780 2700 50  0001 C CNN
+F 3 "~" H 4850 2700 50  0001 C CNN
+	1    4850 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4850 3050 4850 2950
+$Comp
+L Device:R R1
+U 1 1 5B55E058
+P 4450 2800
+F 0 "R1" H 4520 2846 50  0000 L CNN
+F 1 "3.48k" H 4520 2755 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 4380 2800 50  0001 C CNN
+F 3 "~" H 4450 2800 50  0001 C CNN
+	1    4450 2800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4450 2950 4450 3150
+Wire Wire Line
+	4450 3150 4750 3150
+$Comp
+L Device:R R2
+U 1 1 5B55E85B
+P 4450 3450
+F 0 "R2" H 4520 3496 50  0000 L CNN
+F 1 "2.49k" H 4520 3405 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 4380 3450 50  0001 C CNN
+F 3 "~" H 4450 3450 50  0001 C CNN
+	1    4450 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4450 3300 4450 3150
+Connection ~ 4450 3150
+$Comp
+L power:GND #PWR07
+U 1 1 5B55F14F
+P 4450 3750
+F 0 "#PWR07" H 4450 3500 50  0001 C CNN
+F 1 "GND" H 4455 3577 50  0000 C CNN
+F 2 "" H 4450 3750 50  0001 C CNN
+F 3 "" H 4450 3750 50  0001 C CNN
+	1    4450 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4450 3600 4450 3650
+Wire Wire Line
+	4850 3250 4850 3650
+Wire Wire Line
+	4850 3650 4450 3650
+Connection ~ 4450 3650
+Wire Wire Line
+	4450 3650 4450 3750
+$Comp
+L c64-psu-components:BT137 Q1
+U 1 1 5B563193
+P 5400 3050
+F 0 "Q1" H 5529 3096 50  0000 L CNN
+F 1 "BT137" H 5529 3005 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 5600 2975 50  0001 L CIN
+F 3 "http://pdf.datasheetcatalog.com/datasheet/PowerInnovations/mXuqxvy.pdf" H 5400 3050 50  0001 L CNN
+	1    5400 3050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 2950 4850 2950
+Connection ~ 4850 2950
+Wire Wire Line
+	4850 2950 4850 2850
+Wire Wire Line
+	4850 2550 5400 2550
+Wire Wire Line
+	5400 2550 5400 2900
+Wire Wire Line
+	5400 3200 5400 3650
+Wire Wire Line
+	5400 3650 4850 3650
+Connection ~ 4850 3650
+Text GLabel 5900 2550 2    50   Input ~ 0
+5VDC
+Connection ~ 5400 2550
+Wire Wire Line
+	4350 2550 4450 2550
+Connection ~ 4850 2550
+Wire Wire Line
+	4450 2550 4450 2650
+Connection ~ 4450 2550
+Wire Wire Line
+	4450 2550 4850 2550
+Wire Notes Line
+	4050 2500 6150 2500
+Wire Notes Line
+	6150 2500 6150 4000
+Wire Notes Line
+	6150 4000 4050 4000
+Wire Notes Line
+	4050 4000 4050 2500
+Text Notes 4050 2500 0    50   ~ 0
+Crowbar
+$Comp
+L Device:R R4
+U 1 1 5B56AE49
+P 5650 2200
+F 0 "R4" H 5720 2246 50  0000 L CNN
+F 1 "1K" H 5720 2155 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 5580 2200 50  0001 C CNN
+F 3 "~" H 5650 2200 50  0001 C CNN
+	1    5650 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR08
+U 1 1 5B56B97F
+P 5650 1600
+F 0 "#PWR08" H 5650 1350 50  0001 C CNN
+F 1 "GND" H 5655 1427 50  0000 C CNN
+F 2 "" H 5650 1600 50  0001 C CNN
+F 3 "" H 5650 1600 50  0001 C CNN
+	1    5650 1600
+	-1   0    0    1   
+$EndComp
+Wire Notes Line
+	5500 1350 5900 1350
+Wire Notes Line
+	5900 1350 5900 2450
+Wire Notes Line
+	5900 2450 5500 2450
+Wire Notes Line
+	5500 2450 5500 1350
+Text Notes 5500 1350 0    50   ~ 0
+Power LED
+$Comp
+L power:PWR_FLAG #FLG0101
+U 1 1 5B57272B
+P 2000 2500
+F 0 "#FLG0101" H 2000 2575 50  0001 C CNN
+F 1 "PWR_FLAG" H 2000 2674 50  0000 C CNN
+F 2 "" H 2000 2500 50  0001 C CNN
+F 3 "~" H 2000 2500 50  0001 C CNN
+	1    2000 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2000 2500 2000 2550
+$Comp
+L Connector:Conn_01x02_Male J3
+U 1 1 5B58D49F
+P 5850 1900
+F 0 "J3" H 5823 1780 50  0000 R CNN
+F 1 "Conn_01x02_Male" H 5823 1871 50  0000 R CNN
+F 2 "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical" H 5850 1900 50  0001 C CNN
+F 3 "~" H 5850 1900 50  0001 C CNN
+	1    5850 1900
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5400 2550 5650 2550
+Wire Wire Line
+	5650 2350 5650 2550
+Connection ~ 5650 2550
+Wire Wire Line
+	5650 2550 5900 2550
+Wire Wire Line
+	5650 1900 5650 2050
+Wire Wire Line
+	5650 1800 5650 1600
+Wire Wire Line
+	1950 950  2350 950 
+$Comp
+L Connector:Conn_01x02_Female J1
+U 1 1 5B595BF5
+P 800 1050
+F 0 "J1" H 694 725 50  0000 C CNN
+F 1 "Conn_01x02_Female" H 694 816 50  0000 C CNN
+F 2 "c64-components:RND00023" H 800 1050 50  0001 C CNN
+F 3 "~" H 800 1050 50  0001 C CNN
+	1    800  1050
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1000 950  1500 950 
+Wire Wire Line
+	1000 1050 1850 1050
+Wire Wire Line
+	2150 1050 2250 1050
+Wire Wire Line
+	2250 1050 2250 1450
+Wire Wire Line
+	2250 1450 2350 1450
+Text GLabel 2900 950  2    50   Input ~ 0
+9VACOUT_A
+Text GLabel 2900 1050 2    50   Input ~ 0
+9VACOUT_B
+Wire Wire Line
+	2750 950  2900 950 
+Wire Wire Line
+	2900 1050 2750 1050
+Text GLabel 4200 1250 0    50   Input ~ 0
+9VACOUT_A
+Text GLabel 4200 1150 0    50   Input ~ 0
+9VACOUT_B
+Wire Wire Line
+	2600 2850 3200 2850
+Connection ~ 2600 2850
+$Comp
+L Device:CP C3
+U 1 1 5E9E8159
+P 3650 2700
+F 0 "C3" H 3768 2746 50  0000 L CNN
+F 1 "10uF" H 3768 2655 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm" H 3688 2550 50  0001 C CNN
+F 3 "~" H 3650 2700 50  0001 C CNN
+	1    3650 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3500 2550 3650 2550
+Connection ~ 3650 2550
+Wire Wire Line
+	3650 2550 4050 2550
+$Comp
+L power:GND #PWR0101
+U 1 1 5E9F435E
+P 900 2700
+F 0 "#PWR0101" H 900 2450 50  0001 C CNN
+F 1 "GND" H 905 2527 50  0000 C CNN
+F 2 "" H 900 2700 50  0001 C CNN
+F 3 "" H 900 2700 50  0001 C CNN
+	1    900  2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	900  2550 900  2700
+Connection ~ 900  2550
+$Comp
+L power:GND #PWR0102
+U 1 1 5E9F6EA8
+P 3650 3000
+F 0 "#PWR0102" H 3650 2750 50  0001 C CNN
+F 1 "GND" H 3655 2827 50  0000 C CNN
+F 2 "" H 3650 3000 50  0001 C CNN
+F 3 "" H 3650 3000 50  0001 C CNN
+	1    3650 3000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3650 3000 3650 2850
+$Comp
+L power:GND #PWR0103
+U 1 1 5EA048A6
+P 2000 3000
+F 0 "#PWR0103" H 2000 2750 50  0001 C CNN
+F 1 "GND" H 2005 2827 50  0000 C CNN
+F 2 "" H 2000 3000 50  0001 C CNN
+F 3 "" H 2000 3000 50  0001 C CNN
+	1    2000 3000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2000 3000 2000 2850
+Connection ~ 2000 2850
+$Comp
+L c64-psu-components:BOPLA-E440VL O1
+U 1 1 5EA0F966
+P 850 3800
+F 0 "O1" H 875 3846 50  0000 L CNN
+F 1 "BOPLA-E440VL" H 875 3755 50  0000 L CNN
+F 2 "c64-components:BOPLA_E440VL" H 850 3800 50  0001 C CNN
+F 3 "" H 850 3800 50  0001 C CNN
+	1    850  3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x04 J2
+U 1 1 5EA1E9A3
+P 4450 1050
+F 0 "J2" H 4530 1042 50  0000 L CNN
+F 1 "Conn_01x04" H 4530 951 50  0000 L CNN
+F 2 "Connector_Molex:Molex_KK-396_A-41791-0004_1x04_P3.96mm_Vertical" H 4450 1050 50  0001 C CNN
+F 3 "~" H 4450 1050 50  0001 C CNN
+	1    4450 1050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4200 1150 4250 1150
+Wire Wire Line
+	4200 1250 4250 1250
+Wire Wire Line
+	4200 1050 4250 1050
+Wire Wire Line
+	4200 950  4250 950 
+Text GLabel 4200 950  0    50   Input ~ 0
+5VDC
+$EndSCHEMATC
